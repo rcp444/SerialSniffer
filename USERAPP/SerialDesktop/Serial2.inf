@@ -1,0 +1,80 @@
+;
+; Serial2.inf
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System ; TODO: specify appropriate Class
+ClassGuid={4d36e97d-e325-11ce-bfc1-08002be10318} ; TODO: specify appropriate ClassGuid
+Provider=%ManufacturerName%
+CatalogFile=Serial2.cat
+DriverVer = 12/20/2022,21.22.30.11
+PnpLockdown=1
+
+[DestinationDirs]
+DefaultDestDir = 12
+Serial2_Device_CoInstaller_CopyFiles = 11
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+Serial2.sys  = 1,,
+;
+
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName%=Standard,NTamd64
+
+[Standard.NTamd64]
+%Serial2.DeviceDesc%=Serial2_Device, Root\Serial2 ; TODO: edit hw-id
+
+[Serial2_Device.NT]
+CopyFiles=Drivers_Dir
+
+[Drivers_Dir]
+Serial2.sys
+
+;-------------- Service installation
+[Serial2_Device.NT.Services]
+AddService = Serial2,%SPSVCINST_ASSOCSERVICE%, Serial2_Service_Inst
+
+; -------------- Serial2 driver install sections
+[Serial2_Service_Inst]
+DisplayName    = %Serial2.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\Serial2.sys
+
+;
+;--- Serial2_Device Coinstaller installation ------
+;
+
+[Serial2_Device.NT.CoInstallers]
+AddReg=Serial2_Device_CoInstaller_AddReg
+CopyFiles=Serial2_Device_CoInstaller_CopyFiles
+
+[Serial2_Device_CoInstaller_AddReg]
+;
+
+
+[Serial2_Device_CoInstaller_CopyFiles]
+;
+
+
+[Serial2_Device.NT.Wdf]
+KmdfService =  Serial2, Serial2_wdfsect
+[Serial2_wdfsect]
+KmdfLibraryVersion = 1.15
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+ManufacturerName="<Your manufacturer name>" ;TODO: Replace with your manufacturer name
+DiskName = "Serial2 Installation Disk"
+Serial2.DeviceDesc = "Serial2 Device"
+Serial2.SVCDESC = "Serial2 Service"
