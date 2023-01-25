@@ -46,12 +46,12 @@ NTSTATUS DriverEntry(IN PDRIVER_OBJECT driverObject, IN PUNICODE_STRING regPath)
 		KPrintInfoN("Successfully created conn device.");
 	}
 
-	/* User application connection open and close */
+	/* Connection open and close */
 	driverObject->MajorFunction[IRP_MJ_CREATE] = distCreateCloseCall;
 	driverObject->MajorFunction[IRP_MJ_CLOSE] = distCreateCloseCall;
 	driverObject->MajorFunction[IRP_MJ_CLEANUP] = distDispatchPass;
 
-	/* External device controls filter */
+	/* External device controls filter and user app ioctl */
 	driverObject->MajorFunction[IRP_MJ_DEVICE_CONTROL] = distDeviceControl;
 	driverObject->MajorFunction[IRP_MJ_READ] = extDeviceRead;
 	driverObject->MajorFunction[IRP_MJ_WRITE] = extDeviceWrite;

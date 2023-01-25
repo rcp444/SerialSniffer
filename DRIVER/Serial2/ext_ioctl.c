@@ -158,7 +158,6 @@ NTSTATUS extDeviceControl(PDEVICE_OBJECT deviceObject, PIRP Irp)
 
 NTSTATUS extDeviceRead(PDEVICE_OBJECT deviceObject, PIRP Irp)
 {
-	//PIO_STACK_LOCATION pStack = NULL;
 	PDEVICE_EXTENSION pDevExt = NULL;
 	NTSTATUS status = STATUS_SUCCESS;
 
@@ -186,8 +185,6 @@ NTSTATUS extDeviceWrite(PDEVICE_OBJECT deviceObject, PIRP Irp)
 
 	pStack = IoGetCurrentIrpStackLocation(Irp);
 
-	//KPrint("L: %d %s\r\n", pStack->Parameters.Write.Length, (char*)Irp->AssociatedIrp.SystemBuffer);
-	//KPrintN("END IRP_MJ_WRITE");
 	collectData(L"IRP_MJ_WRITE", pStack->Parameters.Write.Length, Irp->AssociatedIrp.SystemBuffer);
 
 	IoReleaseRemoveLock(&pDevExt->ioRemLock, (PVOID)Irp);
@@ -232,7 +229,6 @@ NTSTATUS completePendedIrp(PDEVICE_OBJECT deviceObject, PIRP Irp, PVOID Context)
 
 	pStack = IoGetCurrentIrpStackLocation(Irp);
 	/* Here we can acquire both function name and data from the irp call */
-	//EIOCTL_TYPE reqType = *(char*)Context;
 	ULONG ctrCode = pStack->Parameters.DeviceIoControl.IoControlCode;
 	WCHAR* funcName = evaluteSerialFuncName(ctrCode);
 	

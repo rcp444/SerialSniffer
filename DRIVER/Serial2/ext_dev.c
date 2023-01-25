@@ -7,7 +7,9 @@ BOOLEAN extDevAttached = FALSE;
 NTSTATUS extAttachDeviceByPath(PDRIVER_OBJECT driverObject, UNICODE_STRING targetDevice)
 {
 	NTSTATUS status;
-	status = IoCreateDevice(driverObject, sizeof(DEVICE_EXTENSION), NULL, FILE_DEVICE_KEYBOARD, 0, FALSE, &g_extDevice);
+	status = IoCreateDevice(driverObject, sizeof(DEVICE_EXTENSION),
+		NULL, FILE_DEVICE_SERIAL_PORT, 
+		0, FALSE, &g_extDevice);
 
 	if (!NT_SUCCESS(status))
 	{
