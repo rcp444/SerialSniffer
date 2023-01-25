@@ -1,0 +1,19 @@
+﻿  Building 'Serial2' with toolset 'WindowsKernelModeDriver10.0' and the 'Universal' target platform.
+  Stamping x64\Debug\Serial2.inf
+  Stamping [Version] section with DriverVer=12/20/2022,1.34.15.314
+  Serial2.vcxproj -> C:\Users\Karol\Documents\GitHub\GUT\Serial2\x64\Debug\Serial2.sys
+  Driver is 'Universal'.
+  .........................
+  Signability test complete.
+  
+  Errors:
+  None
+  
+  Warnings:
+  None
+  
+  Catalog generation complete.
+  C:\Users\Karol\Documents\GitHub\GUT\Serial2\x64\Debug\Serial2\serial2.cat
+  Done Adding Additional Store
+  Successfully signed: C:\Users\Karol\Documents\GitHub\GUT\Serial2\x64\Debug\Serial2\serial2.cat
+  

@@ -1,0 +1,28 @@
+﻿  Building 'Serial2' with toolset 'WindowsKernelModeDriver10.0' and the 'Universal' target platform.
+  Stamping x64\Release\Serial2.inf
+  Stamping [Version] section with DriverVer=12/21/2022,22.22.46.102
+  Serial2.vcxproj -> C:\Users\Karol\Documents\GitHub\GUT\Serial2\x64\Release\Serial2.sys
+  Driver is 'Universal'.
+  .........................
+  Signability test complete.
+  
+  Errors:
+  None
+  
+  Warnings:
+  None
+  
+  Catalog generation complete.
+  C:\Users\Karol\Documents\GitHub\GUT\Serial2\x64\Release\Serial2\serial2.cat
+  Done Adding Additional Store
+  Successfully signed: C:\Users\Karol\Documents\GitHub\GUT\Serial2\x64\Release\Serial2\serial2.cat
+  
+  C:\Users\Karol\Documents\GitHub\GUT\Serial2\x64\Release\Serial2.cer
+  C:\Users\Karol\Documents\GitHub\GUT\Serial2\x64\Release\Serial2.inf
+  C:\Users\Karol\Documents\GitHub\GUT\Serial2\x64\Release\Serial2.pdb
+  C:\Users\Karol\Documents\GitHub\GUT\Serial2\x64\Release\Serial2.sys
+  C:\Users\Karol\Documents\GitHub\GUT\Serial2\x64\Release\Serial2\serial2.cat
+  C:\Users\Karol\Documents\GitHub\GUT\Serial2\x64\Release\Serial2\Serial2.inf
+  C:\Users\Karol\Documents\GitHub\GUT\Serial2\x64\Release\Serial2\Serial2.sys
+  7 File(s) copied
+  "Copied files into backup directory"
